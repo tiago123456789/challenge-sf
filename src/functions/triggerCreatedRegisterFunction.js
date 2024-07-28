@@ -25,5 +25,5 @@ module.exports = (database) => {
         }
 
         await registerService.setIncrementId(snapshot.id, snapshot.data().createdAt);
-    }
-}
+    };
+};

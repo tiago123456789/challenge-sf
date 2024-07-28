@@ -15,7 +15,7 @@ module.exports = (database) => {
             });
         }
 
-        const data = request.body
+        const data = request.body;
         if (!data || !data.name) {
             return response.status(400).json({
                 message: "The field name is required",
@@ -37,6 +37,6 @@ module.exports = (database) => {
         });
         logger.info("Saved register");
         return response.json({});
-    }
-}
+    };
+};
 
