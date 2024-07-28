@@ -20,6 +20,7 @@ jobs:
       - name: Setup Firebase credential
         run: |
           echo '${{ secrets.CREDENTIAL_TEST }}' | base64 --decode | jq > ./src/credential-test.json
+          echo '${{ secrets.CREDENTIAL_TEST }}' | base64 --decode | jq > ./src/credential.json
 
       - name: Run tests
         run: cd src && npm install && npm run test
