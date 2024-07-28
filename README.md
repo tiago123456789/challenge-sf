@@ -7,6 +7,19 @@
 - Firebase firestore(Banco de dados)
 - Github actions(CI/CD pipeline e verificar qualidade e padrão de código)
 
+## ESTRUTURA DE PASTAS
+
+```
+-- src/            Onde fica o código do projeto.
+---- configs/      Onde ficar as configurações. Exemplo: firebase e serviços terceiros.
+---- functions/    Onde fica as functions
+---- repositories/ Onde ficar o código que irá interagir com o banco de dados. Exemplo: Firestore.
+---- services/     Onde fica a regra de negócio da aplicação
+---- tests/        Onde fica os testes da aplicação
+------ integration/ Onde fica os testes de integração da aplicação
+------ unit/        Onde fica os testes unitários.
+```
+
 ## INSTRUÇÕES DO PROJETO
 
 - Clonar repositório
