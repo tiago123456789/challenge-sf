@@ -17,5 +17,9 @@ jobs:
       - name: Setting Node.js
         uses: actions/setup-node@v2
 
+      - name: Setup Firebase credential
+        run: |
+          echo '${{ secrets.CREDENTIAL_TEST }}' | base64 --decode | jq > ./src/credential-test.json
+
       - name: Run tests
         run: cd src && npm install && npm run test
