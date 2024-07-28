@@ -1,0 +1,4 @@
+node_modules/
+*.local
+credential.json
+credential-test.json
