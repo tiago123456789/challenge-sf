@@ -1,0 +1,26 @@
+name: "CI(continues integration) pipeline"
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - main
+      - stage
+      - develop
+
+jobs:
+  check_all_tests_ok:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setting Node.js
+        uses: actions/setup-node@v2
+
+      - name: Setup Firebase credential
+        run: |
+          echo '${{ secrets.CREDENTIAL_TEST }}' | base64 --decode | jq > ./src/credential-test.json
+          echo '${{ secrets.CREDENTIAL_TEST }}' | base64 --decode | jq > ./src/credential.json
+
+      - name: Run tests
+        run: cd src && npm install && npm run test

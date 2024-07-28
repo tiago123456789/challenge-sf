@@ -1,0 +1,17 @@
+name: "CD(continues deploy) pipeline"
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  main:
+    name: Deploy to Firebase
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: jsryudev/deploy-firebase-functions@v18.0.1
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FUNCTIONS_DIR: src
